@@ -26,7 +26,7 @@ public class SocioData {
             ps.setString(3, socio.getApellido());
             ps.setInt(4, socio.getEdad());
             ps.setString(5, socio.getCorreo());
-            ps.setInt(6, socio.getTelefono());
+            ps.setLong(6, socio.getTelefono());
             ps.setBoolean(7, socio.isEstado());
             ps.executeUpdate();
             ResultSet rs=ps.getGeneratedKeys();
@@ -92,7 +92,7 @@ public class SocioData {
                 socio.setApellido(rs.getString("apellido"));
                 socio.setEdad(rs.getInt("edad"));
                 socio.setCorreo(rs.getString("correo"));
-                socio.setTelefono(rs.getInt("telefono"));
+                socio.setTelefono(rs.getLong("telefono"));
                 socio.setEstado(rs.getBoolean("estado"));
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontro el socio");
@@ -119,7 +119,7 @@ public class SocioData {
                 socio.setApellido(rs.getString("apellido"));
                 socio.setEdad(rs.getInt("edad"));
                 socio.setCorreo(rs.getString("correo"));
-                socio.setTelefono(rs.getInt("telefono"));
+                socio.setTelefono(rs.getLong("telefono"));
                 socio.setEstado(rs.getBoolean("estado"));
             } 
             ps.close();
@@ -146,7 +146,7 @@ public class SocioData {
                 socio.setApellido(rs.getString("apellido"));
                 socio.setEdad(rs.getInt("edad"));
                 socio.setCorreo(rs.getString("correo"));
-                socio.setTelefono(rs.getInt("telefono"));
+                socio.setTelefono(rs.getLong("telefono"));
                 socio.setEstado(rs.getBoolean("estado"));
                 socios.add(socio);
             }
@@ -171,7 +171,7 @@ public class SocioData {
                 socio.setApellido(resultSet.getString("apellido"));
                 socio.setEdad(resultSet.getInt("edad"));
                 socio.setCorreo(resultSet.getString("correo"));
-                socio.setTelefono(resultSet.getInt("telefono"));
+                socio.setTelefono(resultSet.getLong("telefono"));
                 socio.setEstado(resultSet.getBoolean("estado"));
                 socios.add(socio);
             }
@@ -195,7 +195,7 @@ public class SocioData {
                 socio.setApellido(resultSet.getString("apellido"));
                 socio.setEdad(resultSet.getInt("edad"));
                 socio.setCorreo(resultSet.getString("correo"));
-                socio.setTelefono(resultSet.getInt("telefono"));
+                socio.setTelefono(resultSet.getLong("telefono"));
                 socio.setEstado(resultSet.getBoolean("estado"));
                 socios.add(socio);
             }
@@ -215,7 +215,7 @@ public class SocioData {
             ps.setString(3, socio.getApellido());
             ps.setInt(4, socio.getEdad());
             ps.setString(5, socio.getCorreo());
-            ps.setInt(6, socio.getTelefono());
+            ps.setLong(6, socio.getTelefono());
             ps.setBoolean(7, socio.isEstado());
             ps.setInt(8, socio.getIdSocio());
             int rowCount = ps.executeUpdate();

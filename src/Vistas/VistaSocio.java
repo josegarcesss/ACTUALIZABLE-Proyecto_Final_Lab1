@@ -57,7 +57,6 @@ public class VistaSocio extends javax.swing.JInternalFrame {
         jb_Salir = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
 
         setTitle("SOCIO");
 
@@ -124,8 +123,6 @@ public class VistaSocio extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Estado");
 
-        jLabel10.setText("266 -");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,10 +151,7 @@ public class VistaSocio extends javax.swing.JInternalFrame {
                                         .addComponent(jt_Nombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                                         .addComponent(jt_Apellido, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jt_Email, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel10)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jt_Telefono)))))
+                                        .addComponent(jt_Telefono))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(18, 18, 18)
@@ -229,8 +223,7 @@ public class VistaSocio extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(jt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))))
+                            .addComponent(jLabel9))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -302,54 +295,7 @@ private void llenarCamposSocio(Socio socio) {
 
         
         
-        
-        
-        
-        /*int id;
-        ArrayList<Socio> socios = new ArrayList<>();
-        
-        if (!jt_ID.getText().equals("")) {
-            try {
-                id = Integer.parseInt(jt_ID.getText());
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(this, "El ID es un Numero entero!");
-                return;
-            }
-        if (socio == null) {
-            if (!jt_ID.getText().equals("")) {
-                jt_DNI.setText(socioData.buscarSocioID(id).getDni() + "");
-                jt_Nombre.setText(socioData.buscarSocioID(id).getNombre());
-                jt_Apellido.setText(socioData.buscarSocioID(id).getApellido());
-                jt_Edad.setText(socioData.buscarSocioID(id).getEdad() + "");
-                jcb_Estado.setSelected(socioData.buscarSocioID(id).isEstado());
-                jt_Email.setText(socioData.buscarSocioID(id).getCorreo());
-                jt_Telefono.setText(socioData.buscarSocioID(id).getTelefono() + "");
-                jt_ID.disable();
-                socio = socioData.buscarSocioID(id);
-            }
-        }
-        }else {
-            socios=(ArrayList<Socio>) socioData.buscarSocioNombre(jt_Nombre.getText());
-            if (socioData.buscarSocioNombre(jt_Nombre.getText()).size() > 1) {
-                JOptionPane.showMessageDialog(this, "Existen mas de un " + jt_Nombre.getText() + "\nIngrese ID de Socio!\nBusquelo en Lista de Socios");
-                return;
-                
-            } else if(!jt_Nombre.getText().equalsIgnoreCase("")){
-                for (Socio socio1 : socios) {
-                    socio=socio1;
-                }
-                jt_DNI.setText(socio.getDni() + "");
-                jt_Nombre.setText(socio.getNombre());
-                jt_Apellido.setText(socio.getApellido());
-                jt_Edad.setText(socio.getEdad() + "");
-                jcb_Estado.setSelected(socio.isEstado());
-                jt_Email.setText(socio.getCorreo());
-                jt_Telefono.setText(socio.getTelefono() + "");
-                jt_ID.setText(socio.getIdSocio()+"");
-                jt_ID.disable();
-            }
-            
-        }*/
+
 
     }//GEN-LAST:event_jb_BuscarActionPerformed
 
@@ -367,7 +313,8 @@ private void llenarCamposSocio(Socio socio) {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jb_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_GuardarActionPerformed
-        int dni,edad,telefono;
+        int dni,edad;
+        long telefono;
         boolean estado;
         String nombre,apellido,correo;
         if(socio==null){
@@ -396,7 +343,7 @@ private void llenarCamposSocio(Socio socio) {
             }
             dni=(Integer.parseInt(jt_DNI.getText()));
             edad=(Integer.parseInt(jt_Edad.getText()));
-            telefono=(Integer.parseInt(jt_Telefono.getText()));
+            telefono=(Long.parseLong(jt_Telefono.getText()));
             }catch(NumberFormatException ex){
                  JOptionPane.showMessageDialog(this, "Ingrese numeros Enteros en:\nDNI - EDAD - TELEFONO ");
                     return;
@@ -427,7 +374,7 @@ private void llenarCamposSocio(Socio socio) {
             try{
             socio.setDni(Integer.parseInt(jt_DNI.getText()));
             socio.setEdad(Integer.parseInt(jt_Edad.getText()));
-            socio.setTelefono(Integer.parseInt(jt_Telefono.getText()));
+            socio.setTelefono(Long.parseLong(jt_Telefono.getText()));
             jt_ID.enable();
             socio.setIdSocio(Integer.parseInt(jt_ID.getText()));
             jt_ID.disable();
@@ -467,7 +414,6 @@ private void llenarCamposSocio(Socio socio) {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

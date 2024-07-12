@@ -9,13 +9,13 @@ public class Socio {
     private String apellido;
     private int edad;
     private String correo;
-    private int telefono;
+    private long telefono;
     private boolean estado;
 
     public Socio() {
     }
 
-    public Socio(int dni, String nombre, String apellido, int edad, String correo, int telefono, boolean estado) {
+    public Socio(int dni, String nombre, String apellido, int edad, String correo, long telefono, boolean estado) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -25,7 +25,7 @@ public class Socio {
         this.estado = estado;
     }
 
-    public Socio(int idSocio, int dni, String nombre, String apellido, int edad, String correo, int telefono, boolean estado) {
+    public Socio(int idSocio, int dni, String nombre, String apellido, int edad, String correo, long telefono, boolean estado) {
         this.idSocio = idSocio;
         this.dni = dni;
         this.nombre = nombre;
@@ -84,11 +84,11 @@ public class Socio {
         this.correo = correo;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
